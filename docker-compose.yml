@@ -1,0 +1,9 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: eda-generate-demo
+    ports:
+      - "8086:8000"
+    restart: unless-stopped
