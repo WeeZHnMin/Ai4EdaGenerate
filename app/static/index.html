@@ -17,6 +17,10 @@
       </section>
 
       <section class="panel">
+        <div class="service-status">
+          <p class="label">模型状态</p>
+          <p id="model-status" class="result-message">正在检查后端模型状态。</p>
+        </div>
         <form id="generate-form" class="prompt-form">
           <label class="label" for="prompt">提示词</label>
           <textarea
@@ -26,7 +30,7 @@
             placeholder="例如：设计一个完成 RC 低通滤波功能的 EDA 原理图。"
           ></textarea>
           <div class="actions">
-            <button type="submit" id="submit-btn">发送</button>
+            <button type="submit" id="submit-btn" disabled>发送</button>
             <span id="status-text" class="status"></span>
           </div>
         </form>

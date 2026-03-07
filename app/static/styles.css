@@ -69,6 +69,12 @@ h1 {
   gap: 12px;
 }
 
+.service-status {
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
 .label {
   margin: 0;
   font-size: 13px;
