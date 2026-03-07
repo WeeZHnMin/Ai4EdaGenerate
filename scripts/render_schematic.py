@@ -37,6 +37,49 @@ TYPE_COLORS = {
     "mosfet": "#9b59b6",
 }
 
+NODE_LABELS = {
+    "VCC": "电源",
+    "VDD": "电源",
+    "VIN": "输入",
+    "VOUT": "输出",
+    "OUT": "输出",
+    "INPUT": "输入",
+    "OUTPUT": "输出",
+    "SIG_IN": "信号输入",
+    "SIG_OUT": "信号输出",
+    "PWR_IN": "电源输入",
+    "SUPPLY": "电源",
+    "GND": "接地",
+    "MID": "中间节点",
+    "NODE1": "中间节点",
+    "LOAD": "负载",
+    "RL": "负载",
+    "RLOAD": "负载",
+    "DEVICE": "负载",
+    "U_LOAD": "负载",
+    "KEY1": "按键",
+    "BTN1": "按键",
+    "SW1": "开关",
+}
+
+TYPE_NAMES_ZH = {
+    "power": "电源",
+    "ground": "接地",
+    "input": "输入",
+    "output": "输出",
+    "junction": "中间节点",
+    "resistor": "电阻",
+    "capacitor": "电容",
+    "inductor": "电感",
+    "diode": "二极管",
+    "led": "LED",
+    "button": "按键",
+    "switch": "开关",
+    "load": "负载",
+    "bjt": "三极管",
+    "mosfet": "MOS管",
+}
+
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Render a schematic image from dataset samples.")
@@ -113,7 +156,9 @@ def draw_nodes(draw, components, metrics, text_font):
             outline="#222222",
             width=1,
         )
-        draw.text((cx + 10, cy - 18), node_id, fill="#111111", font=text_font)
+        zh_label = NODE_LABELS.get(node_id, TYPE_NAMES_ZH.get(node["type"], node_id))
+        title_text = f"{zh_label} ({node_id})"
+        draw.text((cx + 10, cy - 18), title_text, fill="#111111", font=text_font)
         coord_text = f"({node['x']},{node['y']})"
         draw.text((cx + 10, cy + 2), coord_text, fill="#666666", font=text_font)
 
