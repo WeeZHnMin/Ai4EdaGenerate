@@ -157,7 +157,7 @@ def draw_nodes(draw, components, metrics, text_font):
             width=1,
         )
         zh_label = NODE_LABELS.get(node_id, TYPE_NAMES_ZH.get(node["type"], node_id))
-        title_text = f"{zh_label} ({node_id})"
+        title_text = f"{zh_label}"
         draw.text((cx + 10, cy - 18), title_text, fill="#111111", font=text_font)
         coord_text = f"({node['x']},{node['y']})"
         draw.text((cx + 10, cy + 2), coord_text, fill="#666666", font=text_font)
